@@ -1,8 +1,10 @@
 <?php
 
-function loginAndDownload($total, $baseUrl, $albumName, $fromId) {
-	$user = "ditimiti";
-	$password = "048780162";
+include "config.php";
+
+function loginAndDownload($total, $baseUrl, $albumName, $fromId, $credentials) {
+	$user = $credentials['user'];
+	$password = $credentials['pass'];
 
 	$dir = "/home/dimitar/";
 	$prefix = "xtr";
@@ -61,10 +63,10 @@ function downloadImages($baseUrl, $id, $albumName, $ch) {
 }
 
 $baseUrl = 'http://www.spt-photo.org/phzone2/img3.php?tip=download&stp=1228&phot=';
-$total = 20;
-$fromId = 1445;
+$total = 10;
+$fromId = 1;
 $albumName = 'ExtremeCup';
 
-loginAndDownload($total, $baseUrl, $albumName, $fromId);
+loginAndDownload($total, $baseUrl, $albumName, $fromId, $credentials);
 
 
